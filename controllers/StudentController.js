@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const Student = mongoose.model("Student")
 
 router.get('/', (req, res)=>{
-    res.render('student/addorEdit', {
+    res.render('student/addOrEdit', {
         viewTitle: "Insert Student"
     })
 })
@@ -47,7 +47,7 @@ router.get('/list', (req, res)=>{
     Student.find((err, docs)=>{
         if(!err) {
             res.render('student/list', {
-                list:docs
+                list:docs,
             })
         }else {
             console.log('error in retrieval: ' + err)
@@ -60,7 +60,7 @@ router.get('/:id', (req, res)=>{
         if(!err) {       // render below file
             res.render('student/addOrEdit', {
                 viewTitle: 'Update Student',
-                student: doc
+                student: doc,
             })
             console.log(doc);
         }
@@ -70,7 +70,8 @@ router.get('/:id', (req, res)=>{
 router.get('/delete/:id', (req, res) =>{
     Student.findByIdAndRemove(req.params.id, (err, doc)=>{
         if(!err){
-            res.redirect('student/list');
+            res.render('student/list');
+            console.log('Removed User :', doc)
         }else{
             console.log('Error in  deletion' + err)
         }

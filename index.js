@@ -16,11 +16,11 @@ app.use(bodyparser.json());
 app.get('/', (req, res)=>{
     res.send(
         `<h2>Welcome to student database!!</h2>
-        <h3>Click here to get access to the
+        <h3>Click here to get access to the <b>
         <a href="/student/list">
-        Database</a>
+        Database</a></b>
         </h3>`
-    )
+    );
 })
 
 app.set('views', path.join(__dirname, '/views/'))
@@ -29,15 +29,16 @@ app.engine(
     "hbs",
     exphbs({
         handlebars: allowInsecurePrototypeAccess(handlebars),
-        exrname:"hbs",
+        extname:"hbs",
         defaultLayout: "MainLayout",
-        layoutDir: __dirname + '/views/layouts/',
+        layoutDir: __dirname + '/views/layouts/'
     })
 )
 
 app.set("view engine", "hbs");
 
-app.listen(3003, ()=>{
+app.listen(3003, (err)=>{
+    if(err)console.log(err);
     console.log('server started at port 3003')
 })
 

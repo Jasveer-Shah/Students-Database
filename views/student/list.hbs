@@ -1,10 +1,10 @@
-{{!-- this will display the list of the students in the database --}}
-<h3><a class="btn btn-secondary" href='/student'>Create New</a>Student List</h3>
+{{!-- this will display the list of the students in the table format database --}}
+<h3><a class="btn btn-secondary" href='/student'>Create New</a>           Student List</h3>
 <table class="table table-stripped">
    <thead>
        <tr>
            <th>Full Name</th>
-           <th>Email</th>
+           <th>Emai</th>
            <th>Mobile</th>
            <th>City</th>
        </tr>
@@ -19,10 +19,10 @@
            <td>
                <a class="btn btn-primary btn-sm" href='/student/{{this.id}}'>Edit</a>
                <a class="btn btn-primary btn-sm" href='/student/delete/{{this.id}}'
-               onClick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+               onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
            </td>
-           {{/each}}
        </tr>
+           {{/each}}
    </tbody>
 
 </table>

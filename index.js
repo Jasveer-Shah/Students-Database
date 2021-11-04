@@ -1,5 +1,5 @@
 require('./models/db')
-
+const port = process.env.PORT || 5000
 const express = require('express');
 const path = require('path');
 const handlebars = require('handlebars');
@@ -37,9 +37,9 @@ app.engine(
 
 app.set("view engine", "hbs");
 
-app.listen(3004, (err)=>{
+app.listen(port, (err)=>{
     if(err)console.log(err);
-    console.log('server started at port 3004')
+    console.log('server started at port', port)
 })
 
 app.use('/student', studentController);

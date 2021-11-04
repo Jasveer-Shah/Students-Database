@@ -37,9 +37,9 @@ app.engine(
 
 app.set("view engine", "hbs");
 
-app.listen(3003, (err)=>{
+app.listen(3004, (err)=>{
     if(err)console.log(err);
-    console.log('server started at port 3003')
+    console.log('server started at port 3004')
 })
 
 app.use('/student', studentController);
